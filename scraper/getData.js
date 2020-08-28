@@ -60,26 +60,24 @@ const analysisSport = () =>{
 		return parse.endParse();
 	}).then(() => {
 		console.log('Parse complete: ' + Date.now());
-		mode.map(sport => {
-			checkMatches(sport);
-			recordHistorySheet(sport);
-			recordCheckSheet(sport);
-		});
+		for(let i = 0; i < mode.length; i++){
+			checkMatches(mode[i]);
+		}
 		return 1;
 	})
-
-	/*.then(() => {
+	
+	.then(async() => {
 		console.log('Check complete: ' + Date.now());
-		mode.map((sport) => {
-			recordHistorySheet(sport);
-		});
+		for(let i = 0; i < mode.length; i++){
+			await recordHistorySheet(mode[i]);
+		}
 		return 1;
-	}).then(() => {
-		mode.map((sport) => {
-			recordCheckSheet(sport);
-		})
+	}).then(async() => {
+		for(let i = 0; i < mode.length; i++){
+			await recordCheckSheet(mode[i]);
+		}
 		return 1;
-	})*/
+	})
 	.then(() => {
 		console.log('Record complete: ' + Date.now());
 		console.log('----------------');

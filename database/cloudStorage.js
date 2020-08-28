@@ -93,7 +93,7 @@ const recordHistorySheet = async(sport) => {
 	await mainSheet.saveUpdatedCells();
 
 	recordFile(profile, sport);
-	
+	//recordCheckSheet(sport);
 	return 1;
 }
 
@@ -200,8 +200,8 @@ const recordCheckSheet = async(sport) => {
 			}
 		})
 
-		//fix two
-		//await mainSheet.saveUpdatedCells();
+		//fix two --
+		await mainSheet.saveUpdatedCells();
 		
 		let max_column;
 		let start_column;
